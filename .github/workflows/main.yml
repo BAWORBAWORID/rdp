@@ -1,3 +1,4 @@
+●
 name: CI
 
 
@@ -24,11 +25,11 @@ jobs:
 
     - name: Auth
 
-      run: .\ngrok\ngrok.exe authtoken 2CmBS4S3Bn9rZRDTBrG9BQCUws7_6GAxCm5g5U6PSeeuujytv
+      run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
 
       env:
 
-        NGROK_AUTH_TOKEN: ${{ 2CmBS4S3Bn9rZRDTBrG9BQCUws7_6GAxCm5g5U6PSeeuujytv }}
+        NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
 
     - name: Enable TS
 
@@ -43,4 +44,3 @@ jobs:
     - name: Create Tunnel
 
       run: .\ngrok\ngrok.exe tcp 3389
-
